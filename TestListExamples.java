@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TestListExamples {
   // Write your grading tests here!
@@ -37,7 +39,7 @@ public class TestListExamples {
         list2.add("d");
         list2.add("f");
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e", "f"));
-        assertEquals(expected, ListExamples.filter(list1, list2));
+        assertEquals(expected, ListExamples.merge(list1, list2));
   }
 }
 

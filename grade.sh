@@ -9,7 +9,9 @@ if test -f "$FILE" ;
 then
     echo "$FILE exists."
 else
-    echo "$FILE does not exists or is not a regular file."
+    echo "$FILE does not exist in this directory or is not a regular file."
+    echo "Grade: 2/10"
+    exit 1
 fi
  
 mkdir -p ./testdir
@@ -21,17 +23,21 @@ set +e
 javac -cp ".;../../lib/hamcrest-core-1.3.jar;../../lib/junit-4.13.2.jar" *.java
 if [ $? -eq 0 ]
 then
-    echo "Compiled Successfully. :)"
+    echo "Compiled Successfully."
 else
-    echo "Did not Compile Successfully. :("
+    echo "Did not Compile Successfully."
+    echo "Grade: 5/10"
+    exit 1
 fi
  
-java TestListExamples
+java -cp ".;../../lib/hamcrest-core-1.3.jar;../../lib/junit-4.13.2.jar" org.junit.runner.JUnitCore TestListExamples
 if [ $? -eq 0 ]
 then
-    echo "Java Ran Successfully. :)"
+    echo "Java Ran Successfully."
+    echo "Grade: 10/10"
 else
-    echo "Java did not run Successfully. :("
+    echo "Java did not run Successfully."
+    echo "Grade: 7/10"
 fi
  
  
